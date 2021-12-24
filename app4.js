@@ -219,13 +219,13 @@ passport.use(new FacebookStrategy({
 
 
 
-app.get("/auth/google",
+app.get("/oauth2/google",
     passport.authenticate("google",{scope:["profile"]})
 
 );
 
 
-app.get("/auth/google/dashboard", 
+app.get("/oauth2/google/dashboard", 
   passport.authenticate('google', { failureRedirect: '/loginKaro' }),         //failure hole redirect to login
   function(req, res) {
     // Successful authentication, redirect home.
