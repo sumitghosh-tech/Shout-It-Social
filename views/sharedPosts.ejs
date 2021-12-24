@@ -1,0 +1,35 @@
+<%- include('partials/header') %>
+
+
+  
+
+<% SHARES.forEach(function(element){  %>
+
+    
+    <div class="box-own">
+        
+        <div class="container">
+
+            <div class="form-group">
+
+                <form action="/friendPosts" method="post">
+                    <input type="hidden" name="userId" value="<%=element.owner%>"></input>
+                    <h6 style="position: relative ;bottom: 80%;left: 50%;font-size: 18px;">Posted by<button style="text-decoration:underline;font-weight: bold;" class="btn btn-sm " type="submit" name="button"><%=element.ownerName%></button></h6>
+                </form>
+                
+                <h3 class="title"><%=element.title%></h3>
+                <p><%=element.content%></p>
+                <% if(element.img!==undefined){ %>
+                    <img id="imgPost"src="uploads/<%=element.img%>" alt="">
+                <% } %>
+                <p class="bottom-right"><%=element.date%></p>
+            </div>
+            
+        </div>
+    </div>
+<% })  %>
+ 
+  
+
+
+<%- include('partials/footer') %>

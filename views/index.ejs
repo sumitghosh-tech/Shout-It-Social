@@ -1,0 +1,56 @@
+<%- include('partials/header') %>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">My App</a>
+  
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <form class="navbar-collapse" action="/dashboard" method="post">
+        <button class="btn btn-primary" type="submit" name="button">Create Post</button> 
+      </form>
+      <a class="btn btn-dark" href="/updateProfile" role="button">Update Profile</a>
+      <a class="btn btn-danger" href="/logout" role="button">Log Out</a>
+      <form class="form-inline" onsubmit="return false;">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="onSearch(this);">Search</button>
+      </form>
+    </div>
+  </nav>
+<script>
+   function onSearch(button){  
+  window.location.href="/search/"+button.previousElementSibling.value; 
+ } 
+</script>
+  
+
+
+  <% OWNPOSTS.forEach(function(element){  %>
+    <div class="box-own">
+      <div class="container">
+
+    
+    <div class="form-group">
+      <label>Title</label>
+      <p><%=element.title%></p>
+      <label>Post</label>
+      <p><%=element.content%></p>
+      <% if(element.imagePost!==undefined){ %>
+        <img id="imgPost"src="uploads/<%=element.imagePost%>" alt="">
+      <% } %>
+    </div>
+    <form action="info" method="post">
+      <input type="hidden" name="postId" value="<%=element._id%>"></input>
+    <input type="hidden" name="userId" value="<%=USER%>"></input>
+    </form>
+    
+    <!--<a class="btn btn-danger" href="/editPost" role="button">Edit Post</a>-->
+</div>
+</div>
+  <% })  %>
+ 
+  
+
+
+<%- include('partials/footer') %>

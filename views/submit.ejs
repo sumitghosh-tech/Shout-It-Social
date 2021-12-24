@@ -1,0 +1,21 @@
+<%- include('partials/header') %>
+
+<div class="container">
+  <div class="jumbotron box text-center">
+    <img class="x" src="css/logo.png" height="100" width="100">
+    <hr>
+    <h1 class="display-3">Important Notes</h1>
+    <p class="secret-text">List your preferrable notes.</p>
+
+    <form action="/submit" method="POST">
+
+      <div class="form-group">
+        <input type="text" class="form-control text-center" name="secret" placeholder="What's your note?" autocomplete="off">
+      </div>
+      <button type="submit" class="btn btn-dark">Submit</button>
+    </form>
+
+
+  </div>
+</div>
+<%- include('partials/footer') %>

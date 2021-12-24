@@ -1,0 +1,47 @@
+<%- include('partials/header') %>
+
+<div class="container-fluid">
+    <div class="row">
+        <ul id="search-results">  
+                <div class="form-group">
+                    
+                        <% FU.forEach(function(element){ %>
+                            <div class="box-own">
+        
+                                <div class="container">
+
+                                <form action="/search" method="post">
+                                    
+                                    <label style="font-weight: bold;">Name</label>
+                                    <p><%=element.firstName%> <%=element.lastName%></p>
+                                    
+                                    <p><%=element.city%> <%=element.country%></p>
+                                    
+                                    <input type="hidden" name="userId" value="<%=element._id%>"></input>
+                                    <input type="hidden" name="main" value="<%=MAIN%>"></input>
+
+                                    <button class="btn btn-sm btn-dark" type="submit" name="button" style="position:relative ;bottom: 1%;left:0%;">Follow</button>
+                                    
+                                </form>
+                                <form action="/friendPosts" method="post">
+                                    <input type="hidden" name="userId" value="<%=element._id%>"></input>
+                                    <button class="btn btn-sm btn-dark" type="submit" name="button" style="position:relative ;bottom: 1%;left:50%;">See Posts</button>
+                                </form>
+                                </div>
+                                </div>
+                                
+                                
+                        <% });  %>
+                        
+                  
+                </div>
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+<%- include('partials/footer') %>

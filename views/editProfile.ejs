@@ -1,0 +1,38 @@
+<%- include("partials/header"); -%>
+
+<form class="" action="/updateProfile" method="post" enctype="multipart/form-data">
+    <div class="img">
+        <img id="imgID" src="uploads/<%=USER.image%>" alt="">
+      </div>
+    <div class="box-own">
+        <h3>Edit Your Profile</h3>
+        <div class="container">
+        <div class="form-group">
+        <div>
+          <label for="uname">City: </label>
+          <input type="text" id="uname" name="city">
+        </div>
+        <br>
+        <div>
+            <label for="uname">Country: </label>
+            <input type="text" id="uname" name="country">
+        </div>
+        <br>
+        <div>
+            <label for="uname">Phone Number: </label>
+            <input type="number" id="uname" name="phone">
+        </div>
+        <br>
+        <div>
+            <label for="uname">Profile Image: </label> (Please upload file of maximum 1MB size)
+            <input type="file"  id="file" name="file" required>
+        </div>
+        <button class="btn btn-primary" type="submit" name="button">Publish</button>
+    </div>
+    </div>
+    </div>
+    
+
+</form>
+
+<%- include("partials/footer"); -%>

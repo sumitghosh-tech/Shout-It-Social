@@ -1,0 +1,41 @@
+<%- include('partials/header') %>
+
+
+  
+
+
+<% FOUNDUSER.posts.forEach(function(element){  %>
+
+    
+    <div class="box-own">
+        <div class="container">
+            <p>Posted by <%=FOUNDUSER.firstName%> <%=FOUNDUSER.lastName%></p>
+            <div class="form-group">
+
+                <h3 class="title"><%=element.title%></h3>
+                <p><%=element.content%></p>
+                
+                <% if(element.imagePost!==undefined){ %>
+                    <img id="imgPost"src="uploads/<%=element.imagePost%>" alt="">
+                <% } %>
+                <form action="/sharedPosts" method="post">
+                    <input type="hidden" name="postTitle" value="<%=element.title%>"></input>
+                    <input type="hidden" name="postContent" value="<%=element.content%>"></input>
+                    <input type="hidden" name="postImg" value="<%=element.imagePost%>"></input>
+                    <input type="hidden" name="postId" value="<%=element._id%>"></input>
+                    <input type="hidden" name="postDate" value="<%=element.date%>"></input>
+                    <input type="hidden" name="userId" value="<%=FOUNDUSER._id%>"></input>
+                    <input type="hidden" name="ownerName" value="<%=FOUNDUSER.firstName%>"></input>
+                    <button style="height: 35px;width:35px ;background-color:#363d3f; position:relative ;bottom: 1%;left:95%;font-size: 18px;" class="btn btn-sm btn-dark" type="submit" name="button" ><img style=" height: 25px;width:25px" src="css/share.png" alt=""></button>
+                </form>
+                <p class="bottom-right"><%=element.date%></p>
+            </div>
+            
+        </div>
+    </div>
+<% })  %>
+ 
+  
+
+
+<%- include('partials/footer') %>

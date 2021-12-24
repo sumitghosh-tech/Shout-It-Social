@@ -1,0 +1,38 @@
+<%- include('partials/header') %>
+  
+<div class="img">
+  <% if(USER.googleId==undefined){ %>
+    <img id="imgID"src="uploads/<%=IMG%>" alt="">
+  <% } %>
+  <% if(USER.googleId!==undefined){ %>
+    <img id="imgID" src="<%=IMG%>" alt="">
+ <% } %>
+</div>
+  <% OWNPOSTS.forEach(function(element){  %>
+    <div class="box-own">
+      <div class="container ">
+        <div class="form-group">
+              <h3 class="title"><%=element.title%></h3>
+              <div class="article-content"><p><%=element.content%></p></div>
+              <hr>
+              
+              <% if(element.imagePost!==undefined){ %>
+                <img id="imgPost"src="uploads/<%=element.imagePost%>" alt="">
+              <% } %>
+              <p class="bottom-right"><%=element.date%></p>
+          </div>
+          <!--<form action="info" method="post">
+            <input type="hidden" name="postId" value="<%=element._id%>"></input>
+          <input type="hidden" name="userId" value="<%=USER%>"></input>
+          </form>-->
+          
+          <!--<a class="btn btn-danger" href="/editPost" role="button">Edit Post</a>-->
+      </div>
+    </div>
+
+  <% })  %>
+ 
+  
+
+
+<%- include('partials/footer') %>
