@@ -219,7 +219,7 @@ passport.use(new FacebookStrategy({
 
 
 
-app.get("/oauth2/google",
+app.get("/auth/google",
     passport.authenticate("google",{scope:["profile"]})
 
 );
