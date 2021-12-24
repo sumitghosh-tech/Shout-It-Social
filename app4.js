@@ -158,7 +158,6 @@ passport.use(new GoogleStrategy({
     //callbackURL: "http://localhost:3000/auth/google/dashboard",
     callbackURL: "https://warm-ravine-20044.herokuapp.com/auth/google/dashboard",
     userProfileURL:"https://www.googleapis.com/oauth2/v3/userinfo",
-    access_type:online
 },
 function(accessToken, refreshToken, profile, done) {
     console.log(profile.photos[0].value);
