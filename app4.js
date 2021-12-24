@@ -156,8 +156,9 @@ passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
     //callbackURL: "http://localhost:3000/auth/google/dashboard",
-    callbackURL: "https://warm-ravine-20044.herokuapp.com/oauth2/v3/google/dashboard",
-    userProfileURL:"https://www.googleapis.com/oauth2/v3/userinfo"
+    callbackURL: "https://warm-ravine-20044.herokuapp.com/auth/google/dashboard",
+    userProfileURL:"https://www.googleapis.com/oauth2/v3/userinfo",
+    access_type:online
 },
 function(accessToken, refreshToken, profile, done) {
     console.log(profile.photos[0].value);
@@ -225,7 +226,7 @@ app.get("/auth/google",
 );
 
 
-app.get("/oauth2/v3/google/dashboard", 
+app.get("/auth/google/dashboard", 
   passport.authenticate('google', { failureRedirect: '/loginKaro' }),         //failure hole redirect to login
   function(req, res) {
     // Successful authentication, redirect home.
