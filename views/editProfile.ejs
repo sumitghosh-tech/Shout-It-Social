@@ -2,7 +2,7 @@
 
 <form class="" action="/updateProfile" method="post" enctype="multipart/form-data">
     <div class="img">
-        <img id="imgID" src="uploads/<%=USER.image%>" alt="">
+        <img id="imgID" src="<%=USER.imageURL%>" alt="">
       </div>
     <div class="box-own">
         <h3>Edit Your Profile</h3>
@@ -27,12 +27,19 @@
             <label for="uname">Profile Image: </label> (Please upload file of maximum 1MB size)
             <input type="file"  id="file" name="file" required>
         </div>
-        <button class="btn btn-primary" type="submit" name="button">Publish</button>
+        <button class="btn btn-primary" type="submit" name="button" onclick="onPublish(this);">Publish</button>
     </div>
     </div>
     </div>
     
 
 </form>
-
+<!--<script>
+    function onPublish(button){ 
+      if(Error){
+        event.preventDefault();
+        alert("Please fill all the details and upload profile image of maximum 1MB size");
+      }
+    } 
+  </script>-->
 <%- include("partials/footer"); -%>

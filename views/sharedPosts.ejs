@@ -19,10 +19,11 @@
                 
                 <h3 class="title"><%=element.title%></h3>
                 <p><%=element.content%></p>
-                <% if(element.img!==undefined){ %>
-                    <img id="imgPost"src="uploads/<%=element.img%>" alt="">
+                <% if(element.imageURL!==undefined){ %>
+                    <img id="imgPost"src="<%=element.imageURL%>" alt="">
                 <% } %>
                 <p class="bottom-right"><%=element.date%></p>
+                <a class="btn btn-dark " href="/editPost" role="button"><img style=" height: 25px;width:25px" src="css/share.png" alt=""></a>
             </div>
             
         </div>

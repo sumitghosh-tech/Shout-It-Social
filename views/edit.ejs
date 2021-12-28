@@ -1,58 +1,24 @@
 <%- include("partials/header"); -%>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#">My App</a>
-  
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-      <form class="navbar-collapse" action="/dashboard" method="post">
-        <button class="btn btn-primary" type="submit" name="button">Create Post</button> 
-      </form>
-      <a class="btn btn-danger" href="/logout" role="button">Log Out</a>
-      <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
 
-  <div>
-    <div class="form-group">
-        <% POSTS.forEach(function(element){  %>
-          <div class="box-own">
-            <div class="container">
-              
-          <div class="form-group">
-            <p><%POSTID%> </p>
-            <% if(element._id===POSTID){ %>
-              <label>Title</label>
-              <p><%=element.title%></p>
-              <label>Post</label>
-              <p><%=element._id%></p>
-            <% } %>
-          </div>  
-       
-      </div>
-      </div>
-        <% })  %>
-      </div>
-      <h1>Edit</h1>
-      <form class="" action="/finalEdit" method="post">
+<form class="" action="/editPost" method="post"  enctype="multipart/form-data">
+  <div class="box-own">
+    <h1>Edit</h1>
+    <div class="container">
+
         <div class="form-group">
-          <label>Title</label>
-          <input class="form-control" type="text" name="postTitle">
-          <label>Post</label>
-          <textarea class="form-control" name="postBody" rows="5" cols="30"></textarea>
-          <label>File</label>
-          <input type="file" class="form-control" name="file">
-        </div>
-
-        <button class="btn btn-primary" type="submit" name="button">Edit</button>
-      </form>
+      <label>Title</label>
+      <input class="form-control" type="text" name="postTitle" value="<%=post.title%>" >
+      <label>Post</label>          
+      <textarea class="form-control" name="postBody" rows="5" cols="30" value=""><%=post.content%></textarea>
+      <label>File</label> (Please upload file of maximum 1MB size)
+      
+      <input type="file" accept="file/*" class="form-control" name="file" required>
+      </div>
+    </div>
+    <img id="imgPost" src="<%=post.imageURL%>" alt=""> 
+    <input type="hidden" name="postImgID" value="<%=post.imageID%>"></input>
+    <button class="btn btn-primary" type="submit" name="button" >Publish</button>
 
   </div>
-
-  
-
+</form>    
   <%- include("partials/footer"); -%>

@@ -15,13 +15,14 @@
                 <h3 class="title"><%=element.title%></h3>
                 <p><%=element.content%></p>
                 
-                <% if(element.imagePost!==undefined){ %>
-                    <img id="imgPost"src="uploads/<%=element.imagePost%>" alt="">
+                <% if(element.imageURL!==undefined){ %>
+                    <img id="imgPost"src="<%=element.imageURL%>" alt="">
                 <% } %>
                 <form action="/sharedPosts" method="post">
                     <input type="hidden" name="postTitle" value="<%=element.title%>"></input>
                     <input type="hidden" name="postContent" value="<%=element.content%>"></input>
-                    <input type="hidden" name="postImg" value="<%=element.imagePost%>"></input>
+                    <input type="hidden" name="postURL" value="<%=element.imageURL%>"></input>
+                    <input type="hidden" name="postID" value="<%=element.imageID%>"></input>
                     <input type="hidden" name="postId" value="<%=element._id%>"></input>
                     <input type="hidden" name="postDate" value="<%=element.date%>"></input>
                     <input type="hidden" name="userId" value="<%=FOUNDUSER._id%>"></input>

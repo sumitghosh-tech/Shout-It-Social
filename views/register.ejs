@@ -40,7 +40,7 @@
                 <i class="check-box"></i>Female
               </div>
             </div>
-            <button type="submit" class="btn btn-dark">Register</button>
+            <button type="submit" class="btn btn-dark" onclick="onRegister(this);">Register</button>
           </form>
 
         </div>
@@ -71,3 +71,12 @@
 </div>
 
 <%- include('partials/footer') %>
+<!--<script>
+  function onRegister(button){ 
+    if(Error instanceof MulterError){
+      event.preventDefault();
+      alert("Please fill all the details and upload profile image of maximum 1MB size");
+    }
+   
+  } 
+</script>-->

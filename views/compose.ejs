@@ -4,7 +4,7 @@
     <div class="box-own">
       <h3>Compose</h3>
       <div class="container">
-      <form class="" action="/compose" method="post" enctype="multipart/form-data">
+      <form class="" action="/compose" id="composed" method="post" enctype="multipart/form-data">
       <div class="form-group">
         <label>Title</label>
         <input class="form-control" type="text" name="postTitle" required>
@@ -13,11 +13,18 @@
         <textarea class="form-control" name="postBody" rows="5" cols="30" required></textarea>
         <label>Post</label>
         <label>File</label> (Please upload file of maximum 1MB size)
-        <input type="file" class="form-control" name="file" required>
+        <input type="file" accept="file/*" class="form-control" name="file" required>
         </div>
       </div>
-      <button class="btn btn-primary" type="submit" name="button">Publish</button>
+      <button class="btn btn-primary" type="submit" name="button" onclick="onPublish(this);">Publish</button>
       </div>
     </form>
-
+<!--<script>
+      function onPublish(button){ 
+        if(Error){
+          event.preventDefault();
+          alert("Please upload file of maximum 1MB size");
+        }
+      } 
+</script>-->
 <%- include("partials/footer"); -%>
