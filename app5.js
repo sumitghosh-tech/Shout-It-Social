@@ -59,8 +59,8 @@ app.use(passport.session());     //Level 4  manage session by passport
 
 
 
-//mongoose.connect("mongodb://localhost:27017/userDB",{UseNewUrlParser:true});
-mongoose.connect("mongodb+srv://Sumit:ssssuuuu@cluster0.ebwns.mongodb.net/app5DB",{UseNewUrlParser:true});
+mongoose.connect("mongodb://localhost:27017/userDB",{UseNewUrlParser:true});
+//mongoose.connect("mongodb+srv://Sumit:ssssuuuu@cluster0.ebwns.mongodb.net/app5DB",{UseNewUrlParser:true});
 
 
 
@@ -168,8 +168,8 @@ passport.use(new GoogleStrategy({
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    //callbackURL: "http://localhost:3000/auth/google/dashboard",
-    callbackURL: "https://warm-ravine-20044.herokuapp.com/auth/google/dashboard",
+    callbackURL: "http://localhost:3000/auth/google/dashboard",
+    //callbackURL: "https://warm-ravine-20044.herokuapp.com/auth/google/dashboard",
     userProfileURL:"https://www.googleapis.com/oauth2/v3/userinfo",
 },
 function(accessToken, refreshToken, profile, done) {
